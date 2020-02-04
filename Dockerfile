@@ -163,6 +163,10 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
   && ln -sf /dev/stdout /var/log/nginx/access.log \
   && ln -sf /dev/stderr /var/log/nginx/error.log
 
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
+# and install node
+RUN apt-get install nodejs -y
+
 RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
     echo /etc/apk/respositories && \
     apk update && apk upgrade &&\
